@@ -1,0 +1,17 @@
+@import "../../responsive.scss";
+
+.footer {
+    text-align: center;
+    padding: 50px 0 30px 0;
+    font-size: 15px;
+    color: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    @include sm {
+        font-size: 13px;
+        padding: 10px 0;
+    }
+}

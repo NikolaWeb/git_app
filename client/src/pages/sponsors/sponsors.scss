@@ -1,0 +1,229 @@
+@import "../../responsive.scss";
+
+.sponsors {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+
+    @include lg {
+        overflow-y: scroll;
+    }
+
+    @include md {
+        margin-top: 15px;
+    }
+
+    h2 {
+        color: #cc2a2a;
+        font-weight: 300;
+        font-size: 27px;
+        margin-bottom: 10px;
+
+        @include lg {
+            font-size: 26px;
+        }
+
+        @include md {
+            font-size: 24px;
+        }
+
+        @include sm {
+            font-size: 20px;
+        }
+    }
+
+    h1 {
+        font-size: 45px;
+        color: #cc2a2a;
+        font-weight: bold;
+        text-transform: uppercase;
+
+        @include lg {
+            font-size: 40px;
+        }
+
+        @include md {
+            font-size: 36px;
+        }
+
+        @include sm {
+            font-size: 30px;
+        }
+    }
+
+    .logo {
+        width: 250px;
+        height: 200px;
+        margin-bottom: 30px;
+        opacity: 0;
+        animation: fade 1.5s forwards ease-in;
+
+        @keyframes fade {
+            to {
+                opacity: 1;
+            }
+        }
+
+        @include lg {
+            width: 180px;
+            height: 180px;
+        }
+
+        @include md {
+            width: 150px;
+            height: 150px;
+        }
+
+        @include sm {
+            width: 120px;
+            height: 120px;
+        }
+    }
+
+    .sponsorsContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+
+        @include lg {
+            gap: 43px;
+            justify-content: center;
+        }
+
+        @include md {
+            gap: 40px;
+            justify-content: center;
+        }
+        
+        @include sm {
+            gap: 35px;
+        }
+
+        img {
+            width: 150px;
+            height: 150px;
+
+            @include lg {
+                width: 120px;
+                height: 120px;
+            }
+
+            @include md {
+                width: 100px;
+                height: 100px;
+            }
+
+            @include sm {
+                width: 80px;
+                height: 80px;
+            }
+
+            &.dakar {
+                width: 250px;
+                height: 200px;
+
+                @include lg {
+                    width: 140px;
+                    height: 160px;
+                }
+
+                @include md {
+                    width: 100px;
+                    height: 100px;
+                }
+
+                @include sm {
+                    width: 80px;
+                    height: 80px;
+                }
+            }
+
+            &.husqvarna {
+                width: 200px;
+                height: 150px;
+
+                @include lg {
+                    width: 120px;
+                    height: 120px;
+                }
+
+                @include md {
+                    width: 100px;
+                    height: 100px;
+                }
+
+                @include sm {
+                    width: 80px;
+                    height: 80px;
+                }
+            }
+        }
+
+        .slide-left {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 50px;
+            transform: translateX(-150%);
+            animation: moving 1.2s forwards ease-in;
+
+            @keyframes moving {
+                to {
+                    transform: translateX(0);
+                }
+            }
+
+            @include lg {
+                gap: 43px;
+                justify-content: center;
+            }
+    
+            @include md {
+                gap: 40px;
+                justify-content: center;
+            }
+            
+            @include sm {
+                gap: 35px;
+            }
+        }
+
+
+        .slide-right {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 50px;
+            transform: translateX(150%);
+            animation:  moving 1s forwards ease-in;
+
+            @keyframes moving {
+                to {
+                    transform: translateX(0);
+                }
+            }
+
+            @include lg {
+                gap: 43px;
+                justify-content: center;
+            }
+    
+            @include md {
+                gap: 40px;
+                justify-content: center;
+            }
+            
+            @include sm {
+                gap: 35px;
+            }
+        }
+
+    }
+
+}

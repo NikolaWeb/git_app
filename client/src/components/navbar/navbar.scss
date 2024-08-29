@@ -1,0 +1,242 @@
+@import "../../responsive.scss";
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+
+    a {
+        transition: all 0.4s ease;
+
+        &:hover {
+            scale: 1.05;
+        }
+
+         @include md {
+            font-size: 13px;
+        }
+        
+    }
+
+    .navLeft {
+        flex: 3;
+        display: flex;
+        align-items: center;
+        gap: 50px;
+
+        @include md {
+            gap: 30px;
+        }
+
+        a {
+            @include sm {
+                display: none;
+            }
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+
+            img {
+                width: 100px;
+
+                @include md {
+                    width: 80px;
+                }
+            }
+        }
+    }
+
+    .navRight {
+        flex: 2;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        background: url("/pexels.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        height: 100%;
+
+        .user {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            gap: 10px;
+            margin-right: 10px;
+
+            img {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                object-fit: cover;
+                // margin-right: 15px;
+
+                @include sm {
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+
+            .profileName {
+                @include sm {
+                    display: none;
+                }
+            }
+
+            .profile {
+                padding: 12px 24px;
+                background: #fece51;
+                cursor: pointer;
+                border: none;
+                position: relative;
+
+                @include sm {
+                    padding: 8px 16px;
+                }
+
+                .notification {
+                    position: absolute;
+                    top: -8px;
+                    right: -8px;
+                    background: red;
+                    color: white;
+                    border-radius: 50%;
+                    width: 26px;
+                    height: 26px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    @include sm {
+                        width: 16px;
+                        height: 16px;
+                    }
+                }
+            }
+
+            .logoutBtn {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 8px;
+                padding: 5px 10px;
+                border-radius: 3px;
+                background: #2a68db;
+                color: #fcf5f3;
+                cursor: pointer;
+                border: none;
+                transition: transform 0.3s ease;
+                margin-left: 10px;
+
+                &:hover {
+                    transform: scale(1.03);
+                }
+
+                @include md {
+                    font-size: 11px;
+                    margin-left: 5px;
+                }
+
+                @include sm {
+                    padding: 3px 5px;
+                }
+
+                img {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+        }
+
+        .loginRegister {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            a {
+                padding: 12px 24px;
+                margin: 20px;
+
+                @include md {
+                    padding: 8px 16px;
+                    margin: 10px;
+                }
+            }
+
+            .register {
+                background: #fece51;
+            }
+
+            @include sm {
+                display: none;
+            }
+        }
+
+        @include md {
+            background: transparent;
+        }
+
+        
+        .menu-icon {
+            display: none;
+            z-index: 998;
+
+            img {
+                width: 36px;
+                height: 36px;
+                cursor: pointer;
+            }
+            
+            @include sm {
+                display: initial;
+            }
+        }
+
+        .mobile-menu {
+            position: absolute;
+            top: 0;
+            right: -50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+            height: 100vh;
+            width: 50%;
+            background: black;
+            color: white;
+            font-size: 24px;
+            transition: all 1s ease;
+            font-size: 16px;
+            z-index: 997;
+
+            &.active {
+                right: 0;
+            }
+
+            a {        
+                @include sm {
+                    font-size: 16px;
+                }
+            }
+
+            .logo {
+                display: flex;
+                align-items: center;
+    
+                img {
+                    width: 100px;
+    
+                    @include md {
+                        width: 80px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+

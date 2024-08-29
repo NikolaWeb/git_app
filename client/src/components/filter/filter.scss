@@ -1,0 +1,131 @@
+@import "../../responsive.scss";
+
+.filter {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    @include sm {
+        align-items: center;
+    }
+
+    @include sm {
+        margin-right: 30px;
+    }
+
+    h1 {
+        font-size: 24px;
+        font-weight: 300;
+
+        @include xs {
+            font-size: 20px;
+        }
+    }
+
+    .item {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+
+        label {
+            font-size: 10px;
+            
+            @include sm {
+                text-align: center;
+            }
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            font-size: 14px;
+
+            @include sm {
+                font-size: 12px;
+            }
+        }    
+    }
+
+    .top {
+        input {
+            width: 100%;
+
+            @include sm {
+                width: 200px;
+            }
+
+            @include sm {
+                font-size: 10px;
+            }
+        }
+    }
+
+    .bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        gap: 5px;
+
+        @include xs {
+            justify-content: center;
+            gap: 0px;
+        }
+
+        label {
+            @include xs {
+                font-size: 7px;
+            }
+        }
+
+        input,
+        select {
+            max-width: 100px;
+
+            @include sm {
+                max-width: 95px;
+            }
+
+            @include sm {
+                font-size: 10px;
+                max-width: 50px;
+            }
+        }
+
+        button {
+            display: flex;
+            align-items: center;
+            justify-content: center;        
+            padding: 8px 16px;
+            border: none;
+            cursor: pointer;
+            background: #fece51;
+
+            @include md {
+                padding: 10px;
+            }
+
+            @include sm {
+                align-self: flex-end;
+            }
+            
+
+            img {
+                width: 24px;
+                height: 24px;
+
+                @include sm {
+                    width: 18px;
+                    height: 18px;
+                }
+
+                @include xs {
+                    width: 15px;
+                    height: 15px;
+                }
+            }
+        }
+    }
+}

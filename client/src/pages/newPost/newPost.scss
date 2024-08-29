@@ -1,0 +1,157 @@
+@import "../../responsive.scss";
+
+.newPostPage {
+    height: 100%;
+    display: flex;
+  
+    .formContainer {
+      flex: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow-y: scroll;
+      padding: 40px 0px;
+
+      h1 {
+        
+        @include sm {
+          font-size: 25px;
+        }
+      }
+
+      .wrapper {
+        margin-top: 30px;
+        padding-right: 50px;
+
+        @include md {
+          padding-right: 20px;
+        }
+
+        @include sm {
+          margin-top: 25px;
+        }
+
+        form {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 20px;
+          justify-content: space-between;
+
+          @include lg {
+            justify-content: space-around;
+
+          }
+
+          @include sm {
+            align-items: center;
+            justify-content: center;
+          }
+
+          .item {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+
+            label {
+              font-size: 14px;
+
+              @include sm {
+                font-size: 12px;
+              }
+            }
+
+            input {
+              width: 100%;
+              height: 50px;
+              padding: 8px;
+
+              @include sm {
+                height: 40px;
+              }
+            }
+  
+            select {
+              width: 100%;
+              height: 50px;
+
+              @include sm {
+                height: 40px;
+              }
+            }
+
+            &.description {
+              width: 100%;
+              height: 320px;
+
+              @include sm {
+                height: 385px;
+              }
+
+              .quill > .ql-container > .ql-editor{
+                  height: 200px;
+                  font-size: 16px;
+
+                  @include sm {}
+              }
+
+            }
+          }
+
+          .sendButton {
+            width: 100%;
+            padding: 19px;
+            background: #28d3ca;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+          }
+
+        }
+
+      }
+    }
+    
+  
+    .sideContainer {
+      flex: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 30px 0px;
+      overflow-y: scroll;
+
+      .imgContainer {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 15px;
+
+        @include md {
+          grid-template-columns: repeat(1, 1fr);
+        }
+
+        img {
+          width: 100%;
+          height: 200px;
+          object-fit: cover;
+          border-radius: 5px;
+
+          @include lg {
+            height: 175px;
+          }
+
+          @include md {
+            height: 150px;
+          }
+
+          @include sm {
+            height: 100px;
+          }
+        }
+      }
+    }
+  }
+

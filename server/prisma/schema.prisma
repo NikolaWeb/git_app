@@ -1,0 +1,134 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Post {
+  id           String    @id @default(auto()) @map("_id") @db.ObjectId
+  brand        String
+  model        String
+  year         Int
+  price        Int
+  images       String[]
+  address      String
+  city         String
+  displacement Int?
+  power        Int
+  latitude     String
+  longitude    String
+  vclType      VclType
+  engType      EngType
+  createdAt    DateTime  @default(now())
+  user         User      @relation(fields: [userId], references: [id])
+  userId       String    @db.ObjectId
+  postDetail   PostDetail?
+  savedPosts   SavedPost[]
+}
+
+enum VclType {
+  car
+  bike
+  buggy
+}
+
+enum EngType {
+  petrol
+  diesel
+  hybrid
+  electric
+  cng
+}
+
+model PostDetail {
+  id           String    @id @default(auto()) @map("_id") @db.ObjectId
+  desc         String
+  condition    Condition
+  gearbox      Gearbox
+  torque       Int?
+  bodyStyle    BodyStyle?
+  mileage      Int
+  driveSys     DriveSys?
+  post         Post      @relation(fields: [postId], references: [id], onDelete: Cascade)
+  postId       String    @unique @db.ObjectId
+}
+
+enum Condition {
+  new
+  used
+}
+
+enum Gearbox {
+  manual
+  automatic
+  semiauto
+}
+
+enum BodyStyle {
+  sedan
+  hatchback
+  coupe
+  wagon
+  suv
+  bike
+  buggy
+}
+
+enum DriveSys {
+  FWD
+  RWD
+  AWD
+}
+
+model SavedPost {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  user      User     @relation(fields: [userId], references: [id])
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  userId    String   @db.ObjectId
+  postId    String   @db.ObjectId
+  createdAt DateTime @default(now())
+
+  @@unique([userId, postId])
+}
+
+model User {
+  id         String    @id @default(auto()) @map("_id") @db.ObjectId
+  username   String    @unique
+  email      String    @unique
+  password   String  
+  avatar     String?
+  createdAt  DateTime  @default(now())
+  posts      Post[]
+  savedPosts SavedPost[]
+  chats      Chat[]    @relation(fields: [chatIDs], references: [id])
+  chatIDs    String[]  @db.ObjectId
+}
+
+model Chat {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  users       User[]    @relation(fields: [userIDs], references: [id])
+  userIDs     String[]  @db.ObjectId
+  createdAt   DateTime  @default(now())
+  seenBy      String[]  @db.ObjectId
+  messages    Message[]
+  lastMessage String? 
+}
+
+model Message {
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  text      String
+  userId    String
+  chat      Chat      @relation(fields: [chatId], references: [id], onDelete: Cascade)
+  chatId    String    @db.ObjectId
+  createdAt DateTime  @default(now())
+}
+

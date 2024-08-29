@@ -1,0 +1,65 @@
+@import "../../responsive.scss";
+
+.listPage {
+    display: flex;
+    height: 100%;
+    padding-top: 50px;
+
+    @include md {
+        padding-top: 25px;
+    }
+
+    @include sm {
+        padding-top: 10px;
+    }
+
+    .listContainer{
+        flex: 3;
+        height: 100%;
+
+        .wrapper {
+            height: 100%;
+            padding-right: 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+            overflow-y: scroll;
+            padding-bottom: 50px;
+
+            @include md {
+                padding-right: 20px;
+            }
+
+            @include sm {
+                padding-right: 0px;
+            }
+
+            .text-warning {
+                background: #fcf1d0;
+                width: fit-content;
+                padding: 5px;
+                font-style: italic;
+                font-size: 13px;
+
+                @include sm {
+                    font-size: 11px;
+                }
+
+                @include sm {
+                    margin-right: 30px;
+                    font-size: 10px;
+                }
+            }
+        }
+    }
+
+    .mapContainer {
+        flex: 2;
+        height: 100%;
+        background: #fcf5f3;
+
+        @include sm {
+            display: none;
+        }
+    }
+}

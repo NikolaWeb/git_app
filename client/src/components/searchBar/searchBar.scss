@@ -1,0 +1,144 @@
+@import "../../responsive.scss";
+
+.searchBar {
+    height: 100%;
+   
+    @include md {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .type {
+        button {
+            padding: 16px 36px;
+            border: 1px solid #999;
+            cursor: pointer;
+            background: white;
+            text-transform: capitalize;
+            border-bottom: none;
+
+            @include md {
+                padding: 13px 25px;
+            }
+
+            @include sm {
+                padding: 10px 16px;
+            }
+
+            &.active {
+                background: black;
+                color: white;
+            }
+
+            &:first-child {
+                border-top-left-radius: 5px;
+                border-right: none;
+            }
+
+            &:last-child {
+                border-top-right-radius: 5px;
+                border-left: none;
+            }
+        }
+    }
+
+    form {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 64px;
+        border: 1px solid #999;
+
+        .inputContainer {
+            @include md {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+
+            @include sm {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        @include md {
+            flex-direction: column;
+            gap: 8px; 
+        }
+
+        @include md {
+            border: initial;
+        }
+
+        input {
+            border: none;
+            padding: 0px 10px;
+            width: 150px;
+            height: 64px; 
+            outline: none;
+
+            @include lg {
+                width: 120px;
+
+                &:nth-child(3),
+                &:nth-child(4) {
+                    width: 130px;
+                }
+            }
+
+            @include md {
+                border: 1px solid #999;
+                height: 48px;
+                width: 100%;
+
+                &:nth-child(3),
+                &:nth-child(4) {
+                    width: 100%;
+                }
+            }
+
+            @include md {
+                height: 40px;
+            }
+        }
+
+        a {
+            flex: 1;
+            background: #f5ce51;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 64px;
+
+            @include md {
+                width: 100%;
+                padding: 5px;
+            }
+
+         
+            button {
+                border: none;
+                cursor: pointer;
+                background: #f5ce51;
+                flex: 1;
+                
+
+                
+            
+    
+                img {
+                    width: 24px;
+                    height: 24px;
+
+                    @include md {
+                        width: 20px;
+                        height: 20px; 
+                    }
+                }
+            }
+        }
+    }
+}

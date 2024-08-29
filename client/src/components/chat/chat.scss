@@ -1,0 +1,153 @@
+@import "../../responsive.scss";
+
+.chat {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    padding-bottom: 10px;
+
+    @include md {
+        gap: 30px;
+    }
+
+    .messages {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        overflow-y: scroll;
+
+        h1 {
+            font-weight: 300;
+
+            @include sm {
+                font-size: 25px;
+            }
+        }
+
+        .message {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            cursor: pointer;
+
+            @include sm {
+                padding: 15px;
+            }
+
+            img {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+
+            span {
+                font-weight: bold;
+            }
+
+            button {
+                border: none;
+                cursor: pointer;
+
+                img {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+        }
+    }
+
+    .chatBox {
+        flex: 1;
+        background: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        // padding-bottom: 10px;
+
+        .top {
+            background: #f7c14b85;
+            padding: 20px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            @include sm {
+                padding: 15px;
+            }
+
+            .user {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+
+                img {
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+            }
+
+            .close {
+                cursor: pointer;
+            }
+        }
+
+        .center {
+            height: 350px;
+            overflow: scroll;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            .chatMessage {
+                width: 50%;
+
+                &.own {
+                    align-self: flex-end;
+                    text-align: right;
+                }
+
+                span {
+                    font-size: 12px;
+                    background: #f7c14b39;
+                    padding: 2px;
+                    border-radius: 5px;
+                }
+            }
+        }
+
+        .bottom {
+            border-top: 2px solid #f7c14b85;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            textarea {
+                flex: 3;
+                height: 100%;
+                border: none;
+                padding: 20px;
+                outline: none;
+            }
+
+            button {
+                flex: 1;
+                background: #f7c14b85;
+                height: 100%;
+                border: none;
+                cursor: pointer;
+            }
+        }
+    }
+}
